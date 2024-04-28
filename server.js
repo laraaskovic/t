@@ -1,5 +1,11 @@
 require("dotenv").config()
+
+
+
 const { SERVER_PORT, STRIPE_PRIVATE_KEY, STRIPE_PRICE_ID, CLIENT_URL } = process.env;
+
+
+
 const express = require("express")
 const app = express()
 const cors = require("cors")
