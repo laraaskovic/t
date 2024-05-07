@@ -16,7 +16,7 @@ app.use(express.static("client"));
 
 const stripe = require("stripe")(STRIPE_PRIVATE_KEY)
 
-const quantity = 25
+const quantity = 1
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
@@ -30,6 +30,10 @@ app.post("/create-checkout-session", async (req, res) => {
         },
       ],
       mode: 'subscription',
+      subscription_data: {
+        trial_period_days: 7, // Adjust the trial period as needed
+      },
+    
     });
     console.log("session: ", session.id, session.url, session)
 
